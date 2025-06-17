@@ -1,0 +1,26 @@
+
+/*分類三個數值的大小*/
+#include <stdio.h>
+
+
+
+void sort3(int *a, int *b, int *c) {
+    int temp;
+    if (*a > *b) { temp = *a; *a = *b; *b = temp; }
+    if (*a > *c) { temp = *a; *a = *c; *c = temp; }
+    if (*b > *c) { temp = *b; *b = *c; *c = temp; }
+}
+
+int main(void) {
+    int x, y, z;
+
+    printf("請輸入三個整數：");
+    if (scanf("%d %d %d", &x, &y, &z) != 3) {
+        fprintf(stderr, "輸入格式錯誤，程式結束。\n");
+        return 1;
+    }
+
+    sort3(&x, &y, &z);
+    printf("由小到大排序：%d %d %d\n", x, y, z);
+    return 0;
+}
