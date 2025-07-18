@@ -1,0 +1,40 @@
+/*若字串str中 還有字元c (如果有負數個出現 以最前端者為準)，則傳回只指向字元隻指標，否則則為NULL
+char *str_chr(const char *str , int c){ ...} */
+
+#include <stdio.h>
+
+char  *str_chr(const char *str , int c ){
+
+    while(*str!='\0'){
+        if(*str == c){return (char *) str ; } 
+        *str ++ ;
+        
+    }
+    return NULL;
+}
+
+int main()
+{
+    char  S1 [128] ;
+    char  C;
+    printf("輸入字串S1:\n");
+    scanf("%s",S1);
+    printf("輸入的字串為%s\n",S1);
+    
+    printf("輸入搜尋字元:\n");
+    scanf(" %c",&C);
+    printf("輸入的字元為%c\n",C);
+    
+
+    char *result = str_chr(S1,C);
+    if (result != NULL) {
+        printf("找到字元 '%c'，出現在位置：%ld\n", C, result - S1);
+        printf("從找到的位置開始的字串為：%s\n", result);
+    } else {
+        printf("找不到字元 '%c'\n", C);
+    }
+    
+    
+    
+    return 0;
+}
