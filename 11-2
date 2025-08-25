@@ -34,7 +34,34 @@ int main()
         printf("找不到字元 '%c'\n", C);
     }
     
-    
+    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+#include <stdio.h>
+
+const char *str_chr(const char *str, int c) {
+    unsigned char uc = (unsigned char)c;   
+    while (*str != '\0') {
+        if ((unsigned char)*str == uc) {
+            return str; 
+        }
+        str++;
+    }
+    return NULL;
+}
+
+int main(void) {
+    const char *text = "This is a book";
+    const char *p = str_chr(text, 'o');    
+
+    if (p) {
+        printf("%s\n", p); 
+    } else {
+        printf("Not found\n");
+    }
+    return 0;
+}
+
     
     return 0;
 }
